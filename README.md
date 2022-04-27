@@ -1,4 +1,4 @@
-**GSAC-DNN**
+# GSAC-DNN
 
 Punctual detections are a good alternative to bounding box detections because they speed up the deployment of datasets
 (only one point is required per instance). This project can be used to automatically detect instances from images. Our
@@ -33,7 +33,7 @@ This code has been tested on Ubuntu 18.04.6 LTS with Docker 20.10.12, Python 3.6
 GPU TITAN Xp. The dependencies can be obtained as follows:
 
 1. Build the Docker image with `docker build -t name_image .`
-2. Run the Docker container with `docker run --user $(id -u):$(id -g) --gpus all -it --rm --volume=$(pwd):/home/inpercept:rw --volume=/path/to/dataset:/path/to/dataset:ro --name name_container name_image bash`
+2. Run the Docker container with `docker run --user $(id -u):$(id -g) --gpus all -it --rm --volume=$(pwd):/home/gsac_dnn:rw --volume=/path/to/dataset:/path/to/dataset:ro --name name_container name_image bash`
 
 This code can also be executed without docker:
 

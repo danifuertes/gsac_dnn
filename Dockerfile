@@ -1,10 +1,10 @@
 # syntax=docker/dockerfile:1
 
-# Base image: TF 2.7.0 GPU
+# Base image: TF 2.4.0 GPU
 FROM tensorflow/tensorflow:2.4.0-gpu
 
 # Working directory (in the container, not in host)
-WORKDIR /home/project
+WORKDIR /home/gsac_dnn
 
 # Requirements
 COPY ./requirements.txt ./requirements.txt
