@@ -129,7 +129,7 @@ class DataGenerator(keras.utils.Sequence):
             for j, box in enumerate(boxes):
                 left, top = box[0], box[1]
                 if self.test:
-                    assert j >= self.max_boxes, \
+                    assert j <= self.max_boxes, \
                         'Image {} has more bounding boxes than the maximum ({}). You should consider a higher value ' \
                         'for the option max_boxes (in options.py)'.format(line_split[0], self.max_boxes)
                     batch_y[i, j, :] = [left, top]
