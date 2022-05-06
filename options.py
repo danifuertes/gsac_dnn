@@ -65,8 +65,8 @@ def get_options(args=None):
                         "Necessary to have prior knowledge about the shape of the ground-truth tensor")
 
     # Files
-    parser.add_argument('--dataset_name', type=str, default='PVDN/night', help="Name of the dataset")
-    parser.add_argument('--dataset_path', type=str, default='/media/data/Datasets/Vehicles', help="Path to the dataset")
+    parser.add_argument('--dataset_name', type=str, default='dataset/name', help="Name of the dataset")
+    parser.add_argument('--dataset_path', type=str, default='/path/to/dataset', help="Path to the dataset")
     parser.add_argument('--train_imgs', type=str, default='train.txt',
                         help="File containing a list of paths to train images")
     parser.add_argument('--test_imgs', type=str, default='test.txt',
