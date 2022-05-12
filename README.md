@@ -152,7 +152,13 @@ Average Miss Rate (LAMR), it is necessary to run another script:
 python -m map.map --results_dir map/predictions/model_DatasetName_TrainDate_test_TestDate --img_width 224 --img_height 224
 ```
 
-Check the folder `map/predictions/model_DatasetName_TrainDate_test_TestDate/results` to find the results computed.
+Check the folder `map/predictions/model_DatasetName_TrainDate_test_TestDate/results` to find the results computed. For
+any additional help, you can run:
+
+```bash
+python test.py --help
+python -m map.map --help
+```
 
 ## Note
 
