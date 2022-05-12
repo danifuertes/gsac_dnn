@@ -84,16 +84,19 @@ def train_model(opts, train_data_generator, val_data_generator, model, initial_e
     callbacks = [write_best_model, lr_reducer, lr_scheduler, tensorboard, hist_callback]
 
     # Train the model
-    model.fit(train_data_generator,
-              epochs=opts.epochs,
-              steps_per_epoch=steps_per_epoch,
-              callbacks=callbacks,
-              validation_data=val_data_generator,
-              validation_steps=validation_steps,
-              initial_epoch=initial_epoch,
-              use_multiprocessing=True,
-              max_queue_size=32,
-              workers=16)
+    try:
+        model.fit(train_data_generator,
+                  epochs=opts.epochs,
+                  steps_per_epoch=steps_per_epoch,
+                  callbacks=callbacks,
+                  validation_data=val_data_generator,
+                  validation_steps=validation_steps,
+                  initial_epoch=initial_epoch,
+                  use_multiprocessing=False,
+                  # max_queue_size=32,
+                  workers=16)
+    except KeyboardInterrupt:
+        model.save(os.path.join(opts.save_dir, 'weights_XXX.h5'))
 
     # Load history
     if os.path.isfile(os.path.join(opts.save_dir, 'log_dir', 'history.pkl')):

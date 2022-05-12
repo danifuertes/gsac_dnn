@@ -15,19 +15,19 @@ If this repository is useful for your work, please cite our paper:
 
 ```
 @article{FUERTES2022103473,
-title = {People detection with omnidirectional cameras using a spatial grid of deep learning foveatic classifiers},
-journal = {Digital Signal Processing},
-volume = {126},
-pages = {103473},
-year = {2022},
-issn = {1051-2004},
-doi = {https://doi.org/10.1016/j.dsp.2022.103473},
-url = {https://www.sciencedirect.com/science/article/pii/S1051200422000902},
-author = {Daniel Fuertes and Carlos R. del-Blanco and Pablo Carballeira and Fernando Jaureguizar and Narciso García}
+    title = {People detection with omnidirectional cameras using a spatial grid of deep learning foveatic classifiers},
+    journal = {Digital Signal Processing},
+    volume = {126},
+    pages = {103473},
+    year = {2022},
+    issn = {1051-2004},
+    doi = {https://doi.org/10.1016/j.dsp.2022.103473},
+    url = {https://www.sciencedirect.com/science/article/pii/S1051200422000902},
+    author = {Daniel Fuertes and Carlos R. del-Blanco and Pablo Carballeira and Fernando Jaureguizar and Narciso García}
 }
 ``` 
 
-**Software requeriments**
+## Software requeriments
 
 This code has been tested on Ubuntu 18.04.6 LTS with Docker 20.10.12, Python 3.6.9, TensorFlow 2.4.0, CUDA 11.0 and a
 GPU TITAN Xp. The dependencies can be obtained as follows:
@@ -44,7 +44,7 @@ interpreter is located in `/usr/bin/python3.6.9`.
 4. Install the dependencies with `pip3 install -r requirements.txt`.
 5. Install TensorFlow 2.4.0 and CUDA 11.0 following [these instruccions](https://www.tensorflow.org/install/gpu)
 
-**Dataset**
+## Dataset
 
 Your dataset should be divided on 2 main sets: train and test. The structure of your dataset should be similar to the
 following one:
@@ -87,7 +87,7 @@ ground-truth format is described next:
 ...
 ```
 where x and y are the coordinates of each of the point-based annotations on the image. You can configure your validation
-data like your train and test data. The file with the annotations of your validation set should be called val.txt. If
+data like your train and test data. The file with the annotations of your validation set should be called `val.txt`. If
 your dataset does not contain a validation set, you can provide a percentage with the option `--val_perc` to extract
 some random samples from the training set and use them to validate:
 
@@ -117,7 +117,7 @@ For any additional help, you can run:
 python train.py --help
 ```
 
-**Test**
+## Test
 
 To evaluate your trained model using your test data with the format described above, you can run:
 
@@ -143,7 +143,7 @@ python test.py --save_imgs True --save_dir models/model_DatasetName_TrainDate --
 ```
 
 The images are saved by sequences in `map/predictions/model_DatasetName_TrainDate_test_TestDate/images`. Next to this
-directory, you can find 2 directories `called detection-results` and `ground-truth`. These directories contain files
+directory, you can find 2 directories called `detection-results` and `ground-truth`. These directories contain files
 with the predictions and annotations of each test image, respectively. To evaluate your model with metrics like Precision
 (P), Recall (R), F1-Score (F), mean Average Precision (mAP), Miss Rate (MR), False Positives Per Images (FPPI), and Log
 Average Miss Rate (LAMR), it is necessary to run another script:
@@ -154,7 +154,7 @@ python -m map.map --results_dir map/predictions/model_DatasetName_TrainDate_test
 
 Check the folder `map/predictions/model_DatasetName_TrainDate_test_TestDate/results` to find the results computed.
 
-**Note**
+## Note
 
 At the beginning of `train.py` and `test.py` you can set the device changing the value of
 `os.environ["CUDA_VISIBLE_DEVICES"]`: CPU="-1", first GPU="0", second GPU="1", etc.
