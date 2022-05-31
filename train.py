@@ -104,19 +104,22 @@ def train_model(opts, train_data_generator, val_data_generator, model, initial_e
             history = pickle.load(f)
 
         # Plot history
-        elements = ['binary_accuracy', 'loss']
+        elements = [e for e in list(history[0].keys()) if not e.startswith('val_')]
         for element in elements:
             hist_train, hist_val = [], []
             for k, v in history.items():
                 hist_train.append(v[element])
-                hist_val.append(v['val_' + element])
+                if 'val_' + element in list(history[0].keys()):
+                    hist_val.append(v['val_' + element])
             plt.plot(hist_train)
             plt.plot(hist_val)
             plt.title('model ' + element)
             plt.ylabel(element)
             plt.xlabel('epoch')
-            plt.legend(['train', 'val'], loc='upper left')
-            plt.savefig(os.path.join(opts.save_dir, 'log_dir', element + '.jpg'))
+            if len(hist_val) > 0:
+                plt.legend(['train', 'val'], loc='upper left')
+            else:
+                plt.legend(['train'], loc='upper left')
             plt.show()
             plt.clf()
     print('Finished')

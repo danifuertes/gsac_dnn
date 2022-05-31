@@ -23,7 +23,7 @@ def main(opts):
     lines_test = load_lines(opts.test_imgs, opts.dataset_path)
 
     # Reduce the number of classifiers
-    filter_classifiers = opts.dataset_path + opts.filter_img if opts.filter_classifiers else None
+    filter_classifiers = opts.filter_img if opts.filter_classifiers else None
 
     # Generate testing data
     test_generator = data_utils.DataGenerator(lines_test,
