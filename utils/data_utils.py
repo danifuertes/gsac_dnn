@@ -318,8 +318,8 @@ def rand(a=0., b=1.):
 def gt_reform(dx, dy, grid, x, y):
 
     """
-    Transform the format x|y|h|w of the gt to a binary vector where '1' means that a car is present on the corresponding
-    grid point and '0' means that there is no car.
+    Transform the format of the gt to a binary vector where '1' means that an object is present on the corresponding
+    grid point and '0' means that there is no object.
 
     # Arguments
         dx: grid step in x-axis
